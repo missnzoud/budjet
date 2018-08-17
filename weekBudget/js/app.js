@@ -11,10 +11,21 @@ class Budget {
 class HTML {
     //insert the budget when the user submit it
     insertBudget(amount) {
+        //console.log(amount);
         //insert into html
         budgetTotal.innerHTML =  `${amount}`;
         budgetLeft.innerHTML =  `${amount}`;
     }
+    //display a message(correct or invalide)
+    printMessage(message, className) {
+        const messageWrapper = document.createElement('div');
+        messageWrapper.classList.add('text-center', 'alert', className);
+        messageWrapper.appendChild(document.createTextNode(message));
+        
+        //inset into HTML
+        document.querySelector('.primary').insertBefore(messageWrapper, addExpenseForm);
+    }
+    
 }
 
 //variables
@@ -54,10 +65,23 @@ function eventListeners() {
 
 //when a new expense is added;
 
-function eventListeners(){
+
+ 
     addExpenseForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+           e.preventDefault();
+     //read the input value
+        const expenseName = document.querySelector('#expense').value;
+        const amount = document.querySelector('#amount').value;
+        
+        if (expenseName === '' || amount === '' ) {
+            //console.log('invalide');
+            html.printMessage('there was an error, all the field are mandatory', 'alert-danger')
+           } else{
+                 console.log('correct');
+            }
+           
+        
     });
     
 }
-}
+
