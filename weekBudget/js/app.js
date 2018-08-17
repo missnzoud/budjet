@@ -1,4 +1,5 @@
 //classes
+
 class Budget {
     constructor(budget) {
         this.budget = Number(budget); //just to convert into number
@@ -24,15 +25,23 @@ class HTML {
         
         //inset into HTML
         document.querySelector('.primary').insertBefore(messageWrapper, addExpenseForm);
-    }
     
+    //clear the error
+    
+         setTimeout(function() {
+               document.querySelector('.primary .alert').remove();
+               addExpenseForm.reset();
+          }, 3000);
+
+    }
 }
 
-//variables
 
-const addExpenseForm = document.querySelector('#add-expense');
-const budgetTotal = document.querySelector('span#total');
-const budgetLeft = document.querySelector('span#left');
+// Variables
+const addExpenseForm = document.querySelector('#add-expense'), 
+        budgetTotal = document.querySelector('span#total'),
+        budgetLeft = document.querySelector('span#left');
+
 
      
 let budget, userBudget;
