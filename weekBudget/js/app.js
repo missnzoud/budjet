@@ -24,7 +24,7 @@ function eventListeners() {
     document.addEventListener('DOMContentLoaded', function() {
     //we ask the visitors the weekly budget
    userBudget = prompt('what/is your weekly budget?');
-    if(userBudget === null || userBudget === '') {
+    if(userBudget === null || userBudget === '' || userBudget === '0') {
         window.location.reload();
     }
 });
