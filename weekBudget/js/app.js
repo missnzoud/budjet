@@ -9,6 +9,7 @@
 
 const addExpenseForm = document.querySelector('#add-expense');
 
+let budget, userBudget;
 
 
 
@@ -18,14 +19,20 @@ const addExpenseForm = document.querySelector('#add-expense');
 
 //event
 eventListeners();
-
-document.addEventListener('DOMContentLoaded', function() {
+//add init
+function eventListeners() {
+    document.addEventListener('DOMContentLoaded', function() {
+    //we ask the visitors the weekly budget
+   userBudget = prompt('what/is your weekly budget?');
     
-})
+});
 
-function eventListeners(){
+//when a new expense is added;
+
+/*function eventListeners(){
     addExpenseForm.eventListeners('submit', function(e) {
         e.preventDefault();
-    })
+    });
     
+}*/
 }
