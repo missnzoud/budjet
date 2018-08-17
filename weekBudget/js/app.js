@@ -34,6 +34,28 @@ class HTML {
           }, 3000);
 
     }
+    
+    //display de expensive from the form into the list
+    addExpenseToList(name, amount) {
+        const expensesList = document.querySelector('#expenses ul');
+        
+        //create li
+        const li = document.createElement('li');
+        li.className = "list-group-item d-flex justify-content-between align-items-center";
+        
+        //created into the HTML
+        
+        li.innerHTML =  `
+                          ${name}
+                          <span class="badge badge-primary badge-pill"> $${amount}</span>
+
+                        `;
+        //insert into the HTML
+        expensesList.appendChild(li);
+        
+        
+    }
+    
 }
 
 
@@ -87,6 +109,9 @@ function eventListeners() {
             html.printMessage('there was an error, all the field are mandatory', 'alert-danger')
            } else{
                  console.log('correct');
+               
+               //add the expensive into the liste
+               html.addExpenseToList(expenseName, amount);
             }
            
         
