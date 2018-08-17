@@ -5,6 +5,10 @@ class Budget {
         this.budget = Number(budget); //just to convert into number
         this.budgetLeft = this.budget;
     }
+    //substract from the budget
+    substractFromBudget(amount) {
+        return this.budgetLeft -=amount;
+    }
 }
 
 //everything related to HTML 
@@ -47,16 +51,22 @@ class HTML {
         
         li.innerHTML =  `
                           ${name}
-                          <span class="badge badge-primary badge-pill"> $${amount}</span>
+                          <span class="badge badge-primary badge-pill"> $ ${amount}</span>
 
                         `;
         //insert into the HTML
         expensesList.appendChild(li);
-        
+    }
+        //substract expense amount from budget
+        trackBudget(amount) {
+            const budgetLeftDollars = budget.substractFromBudget(amount);
+                //console.log(budgetLeftDollars);
+            budgetLeft.innerHTML= `${budgetLeftDollars}`;
+        }
         
     }
     
-}
+
 
 
 // Variables
@@ -112,6 +122,7 @@ function eventListeners() {
                
                //add the expensive into the liste
                html.addExpenseToList(expenseName, amount);
+               html.trackBudget(amount);
             }
            
         
