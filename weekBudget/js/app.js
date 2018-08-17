@@ -1,4 +1,11 @@
 //classes
+class Budget {
+    constructor(budget) {
+        this.budget = Number(budget); //just to convert into number
+        this.budgetLeft = this.budget;
+    }
+}
+
 
 
 
@@ -24,17 +31,25 @@ function eventListeners() {
     document.addEventListener('DOMContentLoaded', function() {
     //we ask the visitors the weekly budget
    userBudget = prompt('what/is your weekly budget?');
+        //validate the user budget
     if(userBudget === null || userBudget === '' || userBudget === '0') {
         window.location.reload();
-    }
+    }else{  
+        //budget is valided then extanciated the budget classes
+        budget = new Budget(userBudget);
+        
+        console.log(budget);
+        
+        
+        }
 });
 
 //when a new expense is added;
 
-/*function eventListeners(){
-    addExpenseForm.eventListeners('submit', function(e) {
+function eventListeners(){
+    addExpenseForm.addEventListener('submit', function(e) {
         e.preventDefault();
     });
     
-}*/
+}
 }
