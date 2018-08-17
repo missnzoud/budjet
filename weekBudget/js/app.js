@@ -7,7 +7,7 @@
 
 //variables
 
-
+const addExpense = document.querySelector('#add-expense')
 
 
 
