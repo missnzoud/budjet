@@ -62,6 +62,16 @@ class HTML {
             const budgetLeftDollars = budget.substractFromBudget(amount);
                 //console.log(budgetLeftDollars);
             budgetLeft.innerHTML= `${budgetLeftDollars}`;
+              //console.log(budget);
+            //check when 25% is left
+            if( (budget.budget) / 4 > budgetLeftDollars) {
+                budgetLeft.parentElement.parentElement.classList.remove('alert-success', 'alert-warning');
+                budgetLeft.parentElement.parentElement.classList.add('alert-danger');
+                
+            }else if( (budget.budget) / 2 > budgetLeftDollars) {
+                     budgetLeft.parentElement.parentElement.classList.remove('alert-success', 'alert-danger');
+                     budgetLeft.parentElement.parentElement.classList.add('alert-danger');
+            }
         }
         
     }
@@ -116,13 +126,14 @@ function eventListeners() {
         
         if (expenseName === '' || amount === '' ) {
             //console.log('invalide');
-            html.printMessage('there was an error, all the field are mandatory', 'alert-danger')
+            html.printMessage('there was an error, all the field are mandatory', 'alert-danger');
            } else{
                  console.log('correct');
                
                //add the expensive into the liste
                html.addExpenseToList(expenseName, amount);
                html.trackBudget(amount);
+                html.printMessage('added----', 'alert-sucess');
             }
            
         
